@@ -13,7 +13,7 @@ class PostObserver
     }
 
     public function updated(Post $post)
-    {
+    {   
         Log::info("Post updated: {$post->title}");
     }
 

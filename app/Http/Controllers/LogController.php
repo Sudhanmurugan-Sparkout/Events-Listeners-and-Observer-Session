@@ -7,6 +7,7 @@ use App\Events\DemoEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Jobs\AsyncLogJob;
+use App\Models\Post;
 use Carbon\Carbon;
 
 class LogController extends Controller
@@ -30,6 +31,24 @@ class LogController extends Controller
         Log::info('Asynchronous Log: ' ."Completed");
         
         return response()->json(['status' => 'success', 'message' => 'Asynchronous log job dispatched.']);
+    }
+    public function store(){
+        $post = new Post();
+        $post->title = 'test';
+        $post->save();
+        return "Stored post successfully";
+    }
+
+    public function updated(){
+        $post = Post::first();
+        $post->title = 'test-1';
+        $post->save();
+        return "Updated post successfully";
+    }
+    public function deleted(){  
+        $post = Post::first();
+        $post->delete();
+        return "Deleted post successfully";
     }
 }
 

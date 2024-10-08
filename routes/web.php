@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/sync-log', [LogController::class, 'syncLog']);
 Route::get('/async-log', [LogController::class, 'asyncLog']);
+Route::get('/store', [LogController::class, 'store']);
+Route::get('/update', [LogController::class, 'updated']);
+Route::get('/delete', [LogController::class, 'deleted']);
